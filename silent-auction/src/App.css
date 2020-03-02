@@ -38,12 +38,10 @@
 }
 
 .form-wrapper{
-  border: 1px solid green;
   padding: 1%;
 }
 
 .form-wrapper form{
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   width: 30%;
@@ -64,6 +62,14 @@
   margin: 0 auto;
   border: none;
   border-radius: 20px;
-  background-color: slateblue;
+  background-color: crimson;
   color: white;
+}
+.form-wrapper .MuiFormLabel-root.Mui-focused{
+  color:crimson;
+}
+.form-wrapper .MuiFormGroup-root{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
