@@ -15,7 +15,6 @@ function Signup(props) {
 
   const handleChanges = f => {
     setUser({...user, [f.target.name] : f.target.value});
-    console.log(user);
   }
   const submitForm = form => {
     form.preventDefault();
