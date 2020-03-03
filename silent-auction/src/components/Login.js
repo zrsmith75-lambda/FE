@@ -21,7 +21,8 @@ function Login() {
     axiosWithAuth().post('/api/auth/login', user)
     .then(res => {
       window.localStorage.setItem('token', res.data.token)
-      history.push('')
+      console.log(res)
+      history.push(`/dashboard/${res.data.type}/${res.data.token}`)
     })
     .catch(err => {
       console.log(err)

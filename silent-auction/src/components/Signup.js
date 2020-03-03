@@ -27,6 +27,7 @@ function Signup() {
     axiosWithAuth().post('/api/auth/register', user)
     .then(res => {
       window.localStorage.setItem('token', res.data.token)
+      console.log(res)
       history.push('')
     })
     .catch(err => {
