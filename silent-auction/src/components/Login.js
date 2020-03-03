@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import {axiosWithAuth} from '../utils/axiosWithAuth'
+import {useHistory} from 'react-router-dom'
 
 function Login() {
 
@@ -7,11 +9,22 @@ function Login() {
     email:"",
   })
 
+  const history = useHistory()
+
   const handleChanges = f => {
     setUser({...user, [f.target.name] : f.target.value})
   }
+
   const submitForm = form => {
     form.preventDefault();
+    axiosWithAuth().post('/api/auth/login', user)
+    .then(res => {
+      window.localStorage.setItem('token', res.data.token)
+      history.push('')
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 
   return (
