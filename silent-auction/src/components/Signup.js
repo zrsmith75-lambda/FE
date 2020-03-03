@@ -4,14 +4,14 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-function Signup(props) {
+function Signup() {
 
   const [user, setUser] = useState({
     username:"",
-    email:"",
     password:"",
-    type:""
+    user_type:""
   })
+  console.log(user)
 
   const handleChanges = f => {
     setUser({...user, [f.target.name] : f.target.value});
@@ -28,8 +28,8 @@ function Signup(props) {
           <input id="password" type="password" name="password" onChange={handleChanges} required></input>                    
           <FormControl component="fieldset">
             <FormLabel component="legend">User type</FormLabel>
-            <RadioGroup aria-label="type" className="radio-options-wrapper" name="type" value={user.type} onChange={handleChanges} required>
-              <FormControlLabel value="auctioned" control={<Radio />} label="Auctioner"/>
+            <RadioGroup aria-label="user_type" className="radio-options-wrapper" name="user_type" value={user.user_type} onChange={handleChanges} required>
+              <FormControlLabel value="seller" control={<Radio />} label="Seller"/>
               <FormControlLabel value="bidder" control={<Radio />} label="Bidder" />
             </RadioGroup>
           </FormControl>
