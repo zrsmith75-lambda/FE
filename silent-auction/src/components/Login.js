@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {axiosWithAuth} from '../utils/axiosWithAuth'
-import {useHistory} from 'react-router-dom'
+import {useHistory, Link} from 'react-router-dom'
 
 function Login() {
 
@@ -35,7 +35,8 @@ function Login() {
         <label htmlFor="name">Username</label>
         <input id="username" type="text" name="username" onChange={handleChanges} required></input>
         <label htmlFor="password">Password</label>
-        <input id="password" type="password" name="password" onChange={handleChanges} required></input>           
+        <input id="password" type="password" name="password" onChange={handleChanges} required></input>  
+        <p>Don't have an account? <Link to='/signup'>Click Here</Link></p>         
         <button type="submit">Log in</button>
       </form>
     </div>
