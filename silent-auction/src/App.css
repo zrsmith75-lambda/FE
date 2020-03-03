@@ -73,3 +73,14 @@
   flex-direction: row;
   justify-content: center;
 }
+
+.Auctions {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 5%;
+}
+
+.AuctionItem {
+  margin-bottom: 5%;
+}
