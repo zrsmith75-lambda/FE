@@ -15,6 +15,7 @@ function Login() {
     setUser({...user, [f.target.name] : f.target.value})
   }
 
+  // Getting token after sign up and pushing to mainpage -- SET PUSH
   const submitForm = form => {
     form.preventDefault();
     axiosWithAuth().post('/api/auth/login', user)
