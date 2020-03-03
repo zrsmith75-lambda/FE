@@ -28,7 +28,7 @@ function Signup() {
     .then(res => {
       window.localStorage.setItem('token', res.data.token)
       console.log(res)
-      history.push('')
+      history.push('/login')
     })
     .catch(err => {
       console.log(err)
