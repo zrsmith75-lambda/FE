@@ -1,4 +1,5 @@
 import React from 'react';
+import BidderDash from "./components/BidderDash"
 import './App.css';
 
 // Components
@@ -7,7 +8,7 @@ import {AuctionContainer} from './components/AuctionContainer'
 function App() {
   return (
     <div className="App">
-      <AuctionContainer/>
+      <BidderDash></BidderDash>
     </div>
   );
 }
