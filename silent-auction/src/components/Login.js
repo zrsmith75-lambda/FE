@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function Login(props) {
+function Login() {
 
   const [user, setUser] = useState({
     username:"",
