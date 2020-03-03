@@ -23,14 +23,14 @@ function Signup(props) {
     <div className="form-wrapper">
         <form onSubmit={submitForm}>
           <label htmlFor="name">Username</label>
-          <input id="username" type="text" name="username" onChange={handleChanges} required></input>
+          <input id="username" type="text" name="username" onChange={handleChanges} required minlength="4"></input>
           <label htmlFor="password">Password</label>
-          <input id="password" type="password" name="password" onChange={handleChanges} required></input>                    
+          <input id="password" type="password" name="password" onChange={handleChanges} required minlength="4"></input>                    
           <FormControl component="fieldset">
             <FormLabel component="legend">User type</FormLabel>
             <RadioGroup aria-label="type" className="radio-options-wrapper" name="type" value={user.type} onChange={handleChanges} required>
-              <FormControlLabel value="auctioned" control={<Radio />} label="Auctioner"/>
-              <FormControlLabel value="bidder" control={<Radio />} label="Bidder" />
+              <FormControlLabel value="auctioned" control={<Radio/>} label="Auctioner"/>
+              <FormControlLabel value="bidder" control={<Radio/>} label="Bidder" />
             </RadioGroup>
           </FormControl>
           <button type="submit">Sign up</button>
