@@ -1,10 +1,10 @@
 export const initialState = {
-    input=''
+    input: false
 }
 
 export const reducer = (state = initialState, action) => {
     switch(action.type) {
         default: 
-        return state
+        return state;
     }
 }

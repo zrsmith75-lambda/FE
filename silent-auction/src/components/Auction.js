@@ -87,7 +87,6 @@ export default function Auction() {
           aria-label="show more"
         >
           <ExpandMoreIcon />
-        </IconButton>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
