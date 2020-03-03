@@ -55,6 +55,18 @@
   margin-bottom: 6%;
   padding: 0.4rem;
 }
+.form-wrapper form input:invalid,.form-wrapper form input:required{
+  border: 1px solid red;
+}
+.form-wrapper form input:required::after{
+  content: "*";
+}
+.form-wrapper form input:valid{
+  border: 1px solid green;
+}
+.form-wrapper form input:focus{
+  outline: none;
+}
 .form-wrapper form button{
   padding: 0.5rem 2.5rem;
   font-size: 1.5rem;
