@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 import {useHistory, Link} from 'react-router-dom'
+import { connect } from 'react-redux';
+import {loginSave} from '../actions'
 
-function Login() {
+function Login(props) {
 
   const [user, setUser] = useState({
     username:"",
@@ -15,18 +17,10 @@ function Login() {
     setUser({...user, [f.target.name] : f.target.value})
   }
 
-  // Getting token after sign up and pushing to mainpage -- SET PUSH
   const submitForm = form => {
     form.preventDefault();
-    axiosWithAuth().post('/api/auth/login', user)
-    .then(res => {
-      window.localStorage.setItem('token', res.data.token)
-      console.log(res)
-      history.push(`/dashboard/${res.data.type}/${res.data.token}`)
-    })
-    .catch(err => {
-      console.log(err)
-    })
+    props.loginSave(user)
+    history.push('/auctions')
   }
 
   return (
@@ -43,4 +37,8 @@ function Login() {
   );
 }
 
-export default Login;
+export default connect(state=>{
+return{
+
+}
+}, {loginSave})(Login);
