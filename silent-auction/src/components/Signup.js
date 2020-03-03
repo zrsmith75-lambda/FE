@@ -4,20 +4,36 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-function Signup(props) {
+import {axiosWithAuth} from '../utils/axiosWithAuth'
+import {useHistory} from 'react-router-dom'
+
+function Signup() {
 
   const [user, setUser] = useState({
     username:"",
-    email:"",
     password:"",
-    type:""
+    user_type:""
   })
+  
+  const history = useHistory()
 
   const handleChanges = f => {
     setUser({...user, [f.target.name] : f.target.value});
   }
+
+  // Setting token after sign up and pushing to mainpage -- SET PUSH
   const submitForm = form => {
     form.preventDefault();
+    axiosWithAuth().post('/api/auth/register', user)
+    .then(res => {
+      window.localStorage.setItem('token', res.data.token)
+      console.log(res)
+      history.push('/login')
+    })
+    .catch(err => {
+      console.log(err)
+    })
+
   }
   return (
     <div className="form-wrapper">
@@ -28,9 +44,15 @@ function Signup(props) {
           <input id="password" type="password" name="password" onChange={handleChanges} required minlength="4"></input>                    
           <FormControl component="fieldset">
             <FormLabel component="legend">User type</FormLabel>
+<<<<<<< HEAD
             <RadioGroup aria-label="type" className="radio-options-wrapper" name="type" value={user.type} onChange={handleChanges} required>
               <FormControlLabel value="auctioned" control={<Radio/>} label="Auctioner"/>
               <FormControlLabel value="bidder" control={<Radio/>} label="Bidder" />
+=======
+            <RadioGroup aria-label="user_type" className="radio-options-wrapper" name="user_type" value={user.user_type} onChange={handleChanges} required>
+              <FormControlLabel value="seller" control={<Radio />} label="Seller"/>
+              <FormControlLabel value="bidder" control={<Radio />} label="Bidder" />
+>>>>>>> 2a151e5eedf3034e2a0bf11b55335a1c0de1f60d
             </RadioGroup>
           </FormControl>
           <button type="submit">Sign up</button>

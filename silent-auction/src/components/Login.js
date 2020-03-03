@@ -1,17 +1,32 @@
 import React, {useState} from 'react';
+import {axiosWithAuth} from '../utils/axiosWithAuth'
+import {useHistory} from 'react-router-dom'
 
-function Login(props) {
+function Login() {
 
   const [user, setUser] = useState({
     username:"",
     email:"",
   })
 
+  const history = useHistory()
+
   const handleChanges = f => {
     setUser({...user, [f.target.name] : f.target.value})
   }
+
+  // Getting token after sign up and pushing to mainpage -- SET PUSH
   const submitForm = form => {
     form.preventDefault();
+    axiosWithAuth().post('/api/auth/login', user)
+    .then(res => {
+      window.localStorage.setItem('token', res.data.token)
+      console.log(res)
+      history.push(`/dashboard/${res.data.type}/${res.data.token}`)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 
   return (
