@@ -6,6 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 import {useHistory} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 function Signup() {
 
@@ -49,6 +50,7 @@ function Signup() {
               <FormControlLabel value="bidder" control={<Radio />} label="Bidder" />
             </RadioGroup>
           </FormControl>
+          <p>Already have an account? <Link to='/login'>Click Here</Link></p>
           <button type="submit">Sign up</button>
         </form>
     </div>
