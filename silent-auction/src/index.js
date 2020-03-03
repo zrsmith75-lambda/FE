@@ -7,11 +7,11 @@ import {BrowserRouter as Router} from 'react-router-dom'
 
 // Redux
 import { createStore, applyMiddleware } from 'redux'
-import {reducer} from './reducer'
 import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
+import combineReducer from './reducer/rootReducer'
 
-const store = createStore(reducer, applyMiddleware(thunk))
+const store = createStore(combineReducer, applyMiddleware(thunk))
 
 ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, document.getElementById('root'));
 
