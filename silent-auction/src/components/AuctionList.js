@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
+import {AuctionCard} from './AuctionCard'
 import {fetchingAuction} from '../actions'
 
 function AuctionList(props) {
-    console.log(`auctions that got gotted`,props.auctions)
-const [auctions, setAuctions]= useState([])
+    console.log(`auctions that got gotted`,props)
 
 useEffect(()=>{
     props.fetchingAuction()
@@ -12,7 +12,9 @@ useEffect(()=>{
 
     return (
         <div>
-            Hello
+            {props.auctions.map((auction)=>{
+                return <AuctionCard key={auction.id} auction={auction}/>
+            })}
             
         </div>
     )
@@ -20,6 +22,6 @@ useEffect(()=>{
 
 export default connect(state=> {
     return{
-        auctions: state.auctions
+        auctions: state.crudReducer.auctions
     }
 }, {fetchingAuction})(AuctionList)

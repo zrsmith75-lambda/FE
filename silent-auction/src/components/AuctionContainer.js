@@ -9,6 +9,7 @@ import Signup from './Signup'
 import SellerDash from './SellerDash'
 import BidderDash from './BidderDash'
 import AuctionList from './AuctionList'
+import {CloserLook} from './CloserLook'
 
 export const AuctionContainer = () => {
 
@@ -23,6 +24,7 @@ export const AuctionContainer = () => {
                 <PrivateRoute exact path='/auctions' component={AuctionList}/>
                 <PrivateRoute exact path='/dashboard/seller/:id' component={SellerDash}/>
                 <PrivateRoute exact path='/dashboard/bidder/:id' component={BidderDash}/>
+                <PrivateRoute exact path='/closerlook/:id' component={CloserLook}/>
             </Switch>
         </div>
     )
