@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { connect } from 'react-redux'
 import {postAuction} from '../actions'
+import AuctionList from './AuctionList'
 
 function SellerDash(props) {
     console.log(props)
@@ -53,6 +54,8 @@ function SellerDash(props) {
 
                 <button type='submit'>Post Auction</button>
             </form>
+
+            <AuctionList/>
         </div>
     )
 }
