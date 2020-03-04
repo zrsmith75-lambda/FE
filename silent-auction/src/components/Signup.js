@@ -4,17 +4,20 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import {axiosWithAuth} from '../utils/axiosWithAuth'
 import {useHistory} from 'react-router-dom'
 import { Link } from 'react-router-dom';
+import {signupSave} from '../actions'
+import { connect } from 'react-redux';
 
-function Signup() {
+function Signup(props) {
 
   const [user, setUser] = useState({
     username:"",
     password:"",
     user_type:""
   })
+
+  console.log(props)
   
   const history = useHistory()
 
@@ -22,18 +25,10 @@ function Signup() {
     setUser({...user, [f.target.name] : f.target.value});
   }
 
-  // Setting token after sign up and pushing to mainpage -- SET PUSH
   const submitForm = form => {
     form.preventDefault();
-    axiosWithAuth().post('/api/auth/register', user)
-    .then(res => {
-      window.localStorage.setItem('token', res.data.token)
-      console.log(res)
+    props.signupSave(user)
       history.push('/login')
-    })
-    .catch(err => {
-      console.log(err)
-    })
 
   }
   return (
@@ -57,4 +52,6 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default connect(state=>{
+return{}
+}, {signupSave})(Signup);

@@ -2,7 +2,7 @@ import React from 'react'
 import {Switch, Route} from 'react-router-dom'
 import PrivateRoute from '../utils/PrivateRoute'
 
-import {Navigation} from './Navigation'
+import Navigation from './Navigation'
 // import AuctionPage from './AuctionPage'
 import Login from './Login'
 import Signup from './Signup'
