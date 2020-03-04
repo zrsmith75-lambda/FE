@@ -1,4 +1,0 @@
-[build]
-base=“”
-  publish= 'silent-auction/'
-  command = “yarn build”
