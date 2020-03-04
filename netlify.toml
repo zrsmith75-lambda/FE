@@ -1,4 +1,4 @@
 [build]
-base=“FE/”
+base=“”
   publish= 'silent-auction/'
-  command = “npm run build”
+  command = “yarn run build”
