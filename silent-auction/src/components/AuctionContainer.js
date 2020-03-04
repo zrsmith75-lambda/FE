@@ -9,7 +9,7 @@ import Signup from './Signup'
 import SellerDash from './SellerDash'
 import BidderDash from './BidderDash'
 import AuctionList from './AuctionList'
-import {CloserLook} from './CloserLook'
+import CloserLook from './CloserLook'
 
 export const AuctionContainer = () => {
 

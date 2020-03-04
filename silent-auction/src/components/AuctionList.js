@@ -4,7 +4,7 @@ import {AuctionCard} from './AuctionCard'
 import {fetchingAuction} from '../actions'
 
 function AuctionList(props) {
-    console.log(`auctions that got gotted`,props)
+    console.log(`AuctionList`,props)
 
 useEffect(()=>{
     props.fetchingAuction()

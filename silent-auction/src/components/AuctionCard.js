@@ -2,7 +2,6 @@ import React from 'react'
 import { useHistory,useParams } from 'react-router-dom'
 
 export const AuctionCard = (props) => {
-    console.log(`you got data boiii`,props)
 
     let history = useHistory()
 
