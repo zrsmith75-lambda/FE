@@ -1,17 +1,13 @@
 import React, {useState, useEffect} from 'react'
-import {axiosWithAuth} from '../utils/axiosWithAuth'
+import { connect } from 'react-redux'
+import {fetchingAuction} from '../actions'
 
-export default function AuctionList() {
+function AuctionList(props) {
+    console.log(props)
 const [auctions, setAuctions]= useState([])
 
 useEffect(()=>{
-    axiosWithAuth().get('/api/auctions')
-    .then(res => {
-        console.log(res)
-    })
-    .catch(err => {
-        console.log(err)
-    })
+    props.fetchingAuction()
 }, [])
 
     return (
@@ -21,3 +17,7 @@ useEffect(()=>{
         </div>
     )
 }
+
+export default connect(state=> {
+    return{}
+}, {fetchingAuction})(AuctionList)
