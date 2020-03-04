@@ -23,7 +23,7 @@ export const signupSave = (userInput) => {
 
 export const loginSave = (userInput) => {
     return(dispatch) => {
-        dispatch({type: POSTING, payload: true})
+        dispatch({type: POSTING,})
         axiosWithAuth().post('/api/auth/login', userInput)
         .then(res => {
             window.localStorage.setItem('token', res.data.token)
@@ -56,6 +56,27 @@ export const fetchingAuction = () => {
         .catch(err => {
             console.log(err)
             dispatch({type: FAILURE_FETCHING})
+        })
+    }
+}
+
+// Posting a new auction
+
+export const POSTING_AUCTION = 'POSTING_AUCTION'
+export const FAILURE_POSTING_AUCTION = 'FAILURE_POSTING_AUCTION'
+export const SUCCESS_POSTING_AUCTION = 'SUCCESS_POSTING_AUCTION'
+
+export const postAuction = (listing) => {
+    return(dispatch) => {
+        dispatch({type: POSTING_AUCTION})
+        axiosWithAuth().post('/api/auctions', listing)
+        .then(res => {
+            console.log(res)
+            dispatch({type: SUCCESS_POSTING_AUCTION})
+
+        })
+        .catch(err => {
+            dispatch({type: FAILURE_POSTING_AUCTION})
         })
     }
 }

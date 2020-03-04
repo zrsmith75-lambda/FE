@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {fetchingAuction} from '../actions'
 
 function AuctionList(props) {
-    console.log(props.auctions)
+    console.log(`auctions that got gotted`,props.auctions)
 const [auctions, setAuctions]= useState([])
 
 useEffect(()=>{
