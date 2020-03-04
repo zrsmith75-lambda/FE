@@ -50,7 +50,7 @@ export const fetchingAuction = () => {
         axiosWithAuth().get('/api/auctions')
         .then(res => {
             console.log(res)
-            dispatch({type: SUCCESS_FETCHING})
+            dispatch({type: SUCCESS_FETCHING, payload: res.data})
 
         })
         .catch(err => {

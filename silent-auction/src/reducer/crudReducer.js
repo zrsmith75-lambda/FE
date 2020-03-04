@@ -15,6 +15,7 @@ const initialState= {
 }
 
 export const crudReducer = (state = initialState, action) => {
+    console.log(action)
     switch(action.type){
     case POSTING:
         return {...state, isPosting: true}
@@ -27,7 +28,7 @@ export const crudReducer = (state = initialState, action) => {
     case FETCHING:
             return {...state, isFetching: true}
     case SUCCESS_FETCHING:
-        return {...state, isFetching: false}
+        return {...state, auctions: action.payload ,isFetching: false}
     case FAILURE_FETCHING:
         return {...state, isFetching: false}
      default: 
