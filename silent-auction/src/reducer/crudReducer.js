@@ -1,4 +1,4 @@
-import {POSTING, SUCCESS_POSTING_LOGIN,SUCCESS_POSTING_SIGNUP, FAILURE_POSTING, FETCHING, SUCCESS_FETCHING, FAILURE_FETCHING} from '../actions'
+import {POSTING, SUCCESS_POSTING_LOGIN,SUCCESS_POSTING_SIGNUP, FAILURE_POSTING, FETCHING, SUCCESS_FETCHING, FAILURE_FETCHING, SUCCESS_POSTING_AUCTION, FAILURE_POSTING_AUCTION, POSTING_AUCTION} from '../actions'
 
 const initialState= {
     user: {
@@ -15,6 +15,7 @@ const initialState= {
 }
 
 export const crudReducer = (state = initialState, action) => {
+    console.log(action)
     switch(action.type){
     case POSTING:
         return {...state, isPosting: true}
@@ -25,11 +26,17 @@ export const crudReducer = (state = initialState, action) => {
     case FAILURE_POSTING:
         return {...state, isPosting: false}
     case FETCHING:
-            return {...state, isFetching: true}
+         return {...state, isFetching: true}
     case SUCCESS_FETCHING:
-        return {...state, isFetching: false}
+        return {...state, auctions: action.payload ,isFetching: false}
     case FAILURE_FETCHING:
         return {...state, isFetching: false}
+    case POSTING_AUCTION:
+        return {...state, isPosting: true}
+        case SUCCESS_POSTING_AUCTION:
+        return {...state, auctions: action.payload, isPosting: false}
+    case FAILURE_POSTING_AUCTION:
+        return {...state, isPosting: false}
      default: 
         return state
     }

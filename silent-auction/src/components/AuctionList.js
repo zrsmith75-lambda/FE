@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {fetchingAuction} from '../actions'
 
 function AuctionList(props) {
-    console.log(props)
+    console.log(`auctions that got gotted`,props.auctions)
 const [auctions, setAuctions]= useState([])
 
 useEffect(()=>{
@@ -19,5 +19,7 @@ useEffect(()=>{
 }
 
 export default connect(state=> {
-    return{}
+    return{
+        auctions: state.auctions
+    }
 }, {fetchingAuction})(AuctionList)
