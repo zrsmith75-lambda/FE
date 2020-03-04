@@ -80,3 +80,46 @@ export const postAuction = (listing) => {
         })
     }
 }
+
+// Deleting Auction
+
+export const DELETE_AUCTION = 'DELETE_AUCTION'
+export const FAILURE_DELETE_AUCTION = 'FAILURE_DELETE_AUCTION'
+export const SUCCESS_DELETE_AUCTION = 'SUCCESS_DELETE_AUCTION'
+
+export const deleteAuction = (id) => {
+    return(dispatch) => {
+        dispatch({type: DELETE_AUCTION})
+        axiosWithAuth().delete(`/api/auctions/${id}`)
+        .then(res => {
+            console.log(res)
+            dispatch({type: SUCCESS_DELETE_AUCTION})
+
+        })
+        .catch(err => {
+            dispatch({type: FAILURE_DELETE_AUCTION})
+        })
+    }
+}
+
+// Updating Auciton
+
+export const UPDATE_AUCTION = 'UPDATE_AUCTION'
+export const FAILURE_UPDATE_AUCTION = 'FAILURE_UPDATE_AUCTION'
+export const SUCCESS_UPDATE_AUCTION = 'SUCCESS_UPDATE_AUCTION'
+
+export const updateAuction = (id, listing) => {
+    return(dispatch) => {
+        dispatch({type: UPDATE_AUCTION})
+        axiosWithAuth().put(`/api/auctions/${id}`, listing)
+        .then(res => {
+            console.log(res)
+            dispatch({type: SUCCESS_UPDATE_AUCTION})
+
+        })
+        .catch(err => {
+            console.log(err)
+            dispatch({type: FAILURE_UPDATE_AUCTION})
+        })
+    }
+}
