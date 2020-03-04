@@ -1,4 +1,4 @@
 [build]
-command = “yarn run build”
-  publish=silent-auction/
+command = “npm run build”
+  publish= 'silent-auction/'
   base=“”
