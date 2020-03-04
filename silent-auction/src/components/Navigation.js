@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 
 
 const Navigation = (props) => {
-console.log(`in Navigation`,props)
     const history = useHistory()
     const token = window.localStorage.getItem('token')
 

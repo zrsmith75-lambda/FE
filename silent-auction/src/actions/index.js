@@ -1,5 +1,6 @@
 import {axiosWithAuth} from '../utils/axiosWithAuth'
-import {useHistory} from 'react-router-dom'
+
+// Posting action for login and signup form
 
 export const POSTING = 'POSTING'
 export const FAILURE_POSTING = 'FAILURE_POSTING'
@@ -25,15 +26,36 @@ export const loginSave = (userInput) => {
         dispatch({type: POSTING, payload: true})
         axiosWithAuth().post('/api/auth/login', userInput)
         .then(res => {
-            console.log(res)
             window.localStorage.setItem('token', res.data.token)
             alert(`${res.data.message}, you are now being redirected to Auction Page.`)
             dispatch({type: SUCCESS_POSTING_LOGIN, payload: {user_id: res.data.id, user_type: res.data.type}})
 
         })
         .catch(err => {
-            console.log(err)
             dispatch({type: FAILURE_POSTING})
+        })
+    }
+}
+
+// Fetching auction for main menu
+
+export const FETCHING = 'FETCHING'
+export const SUCCESS_FETCHING = 'SUCCESS_FETCHING'
+export const FAILURE_FETCHING = 'FAILURE_FETCHING'
+
+
+export const fetchingAuction = () => {
+    return(dispatch) => {
+        dispatch({type: FETCHING})
+        axiosWithAuth().get('/api/auctions')
+        .then(res => {
+            console.log(res)
+            dispatch({type: SUCCESS_FETCHING})
+
+        })
+        .catch(err => {
+            console.log(err)
+            dispatch({type: FAILURE_FETCHING})
         })
     }
 }
