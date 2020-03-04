@@ -1,4 +1,4 @@
 [build]
-command = “yarn run build”
-  publish=“<the directory that has the JSON file>”
-  base=“<maybe leave this blank>”
+command = “npm run build”
+  publish=“silent-auction/”
+  base=“”
