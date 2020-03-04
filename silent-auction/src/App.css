@@ -88,6 +88,10 @@
   justify-content: center;
 }
 
+.auctionWrapper{
+
+}
+
 .Auctions {
   display: flex;
   justify-content: space-around;
