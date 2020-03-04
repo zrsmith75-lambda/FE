@@ -1,4 +1,4 @@
 [build]
 base=“”
   publish= 'silent-auction/'
-  command = “yarn run build”
+  command = “yarn build”
