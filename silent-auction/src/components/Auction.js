@@ -49,7 +49,7 @@ export default function Auction() {
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            A
+            {toString(props.location.state.name).charAt(0)}
           </Avatar>
         }
         action={
@@ -84,12 +84,7 @@ export default function Auction() {
           })}
           onClick={handleExpandClick}
           aria-expanded={expanded}
-<<<<<<< HEAD
           aria-label="show more"/>
-=======
-          aria-label="show more"
-        />
->>>>>>> 2a151e5eedf3034e2a0bf11b55335a1c0de1f60d
           <ExpandMoreIcon />
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
