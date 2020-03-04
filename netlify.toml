@@ -1,0 +1,4 @@
+[build]
+base = 'silent-auction/'
+publish = 'silent-auction/public'
+command = 'yarn run build'
