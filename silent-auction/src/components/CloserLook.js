@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { connect } from 'react-redux'
 import {updateAuction, deleteAuction} from '../actions'
 import {useHistory} from 'react-router-dom'
@@ -56,8 +56,14 @@ const useStyles = makeStyles(theme => ({
             justifyContent:"space-around",
             margin:"0 auto",
             width:"75%",
+            '& input':{
+                fontSize:"1rem",
+                padding:"0.3rem"
+            },
             '& textarea':{
-                maxWidth:"100%"
+                maxWidth:"100%",
+                fontSize:"1rem",
+                padding:"0.3rem"
             }
         }
     }
@@ -81,6 +87,16 @@ const CloserLook = (props) => {
             user_id: props.user_id
         })
 
+        useEffect(()=>{
+            setListing({
+                name: props.location.state.name,
+                image: props.location.state.image,
+                description: props.location.state.description,
+                starting_price: props.location.state.starting_price,
+                deadline: props.location.state.deadline,
+                user_id: props.user_id
+                })
+        },props)
     
         const handleChange = (e) => {
             e.preventDefault()
