@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {useHistory} from 'react-router-dom'
+import { connect } from 'react-redux'
 
 
-export const Navigation = () => {
-
+const Navigation = (props) => {
+console.log(`in Navigation`,props)
     const history = useHistory()
     const token = window.localStorage.getItem('token')
 
@@ -24,3 +25,9 @@ export const Navigation = () => {
     </div>
 ):(null)
 }
+
+export default connect(state=>{
+    return{
+        user_id: state.crudReducer.user_id
+    }
+}, {})(Navigation)

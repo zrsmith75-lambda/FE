@@ -4,7 +4,6 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import {axiosWithAuth} from '../utils/axiosWithAuth'
 import {useHistory} from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import {signupSave} from '../actions'

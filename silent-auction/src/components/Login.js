@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {axiosWithAuth} from '../utils/axiosWithAuth'
 import {useHistory, Link} from 'react-router-dom'
 import { connect } from 'react-redux';
 import {loginSave} from '../actions'
@@ -39,6 +38,6 @@ function Login(props) {
 
 export default connect(state=>{
 return{
-
+  user_id: state.user_id
 }
 }, {loginSave})(Login);

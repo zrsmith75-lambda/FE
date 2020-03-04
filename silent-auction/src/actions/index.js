@@ -1,5 +1,4 @@
 import {axiosWithAuth} from '../utils/axiosWithAuth'
-import {Redirect} from 'react-router-dom'
 
 export const POSTING = 'POSTING'
 export const SUCCESS_POSTING = 'SUCCESS_POSTING'
@@ -7,16 +6,16 @@ export const FAILURE_POSTING = 'FAILURE_POSTING'
 
 export const signupSave = (userInput) => {
     return(dispatch) => {
-        dispatch({type: POSTING, payload: true})
+        dispatch({type: POSTING})
         axiosWithAuth().post('/api/auth/register', userInput)
         .then(res => {
             console.log(res)
             window.localStorage.setItem('token', res.data.token)
-            dispatch({type: SUCCESS_POSTING, payload: false})
+            dispatch({type: SUCCESS_POSTING})
         })
         .catch(err => {
             console.log(err)
-            dispatch({type: FAILURE_POSTING, payload: false})
+            dispatch({type: FAILURE_POSTING})
         })
     }
 }
@@ -28,11 +27,11 @@ export const loginSave = (userInput) => {
         .then(res => {
             console.log(res)
             window.localStorage.setItem('token', res.data.token)
-            dispatch({type: SUCCESS_POSTING, payload: false})
+            dispatch({type: SUCCESS_POSTING, payload: res.data.id})
         })
         .catch(err => {
             console.log(err)
-            dispatch({type: FAILURE_POSTING, payload: false})
+            dispatch({type: FAILURE_POSTING})
         })
     }
 }
