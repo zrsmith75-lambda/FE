@@ -1,0 +1,3 @@
+[build]
+base = 'silent-auction/'
+publish = 'silent-auction'
