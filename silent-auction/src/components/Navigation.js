@@ -19,8 +19,9 @@ console.log(`in Navigation`,props)
     return token ? ( 
     <div>
         <Link to='/auctions'>Auctions</Link>
-        <Link to='/dashboard/seller/:id'>Seller Dash</Link>
-        <Link to='/dashboard/bidder/:id'>Bidder Dash</Link>
+        {props.user_type === 'seller' ? (<Link to={`/dashboard/${props.user_type}/${props.id}`}>Seller Dash</Link>):(<Link to={`/dashboard/${props.user_type}/${props.id}`}>Bidder Dash</Link>)}
+        
+        
         <button onClick={signOut}>Sign out</button>
     </div>
 ):(null)
@@ -28,6 +29,7 @@ console.log(`in Navigation`,props)
 
 export default connect(state=>{
     return{
-        user_id: state.crudReducer.user_id
+        user_id: state.crudReducer.user_id,
+        user_type: state.crudReducer.user_type
     }
 }, {})(Navigation)

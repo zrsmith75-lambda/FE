@@ -19,7 +19,11 @@ function Login(props) {
   const submitForm = form => {
     form.preventDefault();
     props.loginSave(user)
-    history.push('/auctions')
+
+    setTimeout(function(){
+      history.push('/auctions')
+    }, 2000)
+    
   }
 
   return (

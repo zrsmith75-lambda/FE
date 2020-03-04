@@ -10,7 +10,7 @@ function App(props) {
   console.log(`in app.js`,props)
   return (
     <div className="App">
-      <BidderDash></BidderDash>
+      <AuctionContainer/>
     </div>
   );
 }
