@@ -1,4 +1,5 @@
 import React from 'react';
+import BidderDash from "./components/BidderDash"
 import './App.css';
 import {connect} from 'react-redux'
 
@@ -9,7 +10,7 @@ function App(props) {
   console.log(`in app.js`,props)
   return (
     <div className="App">
-      <AuctionContainer/>
+      <BidderDash></BidderDash>
     </div>
   );
 }
