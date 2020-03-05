@@ -11,6 +11,7 @@ function App(props) {
   return (
     <div className="App">
       <AuctionContainer/>
+      <h1>this is a test</h1>
     </div>
   );
 }
